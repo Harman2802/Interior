@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Messages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#f4f6fb;
+}
+
+/* LAYOUT */
+.container{
+  display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:230px;
+  background:#1f2937;
+  color:white;
+  min-height:100vh;
+  padding:20px;
+}
+
+.sidebar h3{
+  margin-bottom:20px;
+}
+
+.sidebar button{
+  display:block;
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border:none;
+  background:#374151;
+  color:white;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:30px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  max-width:600px;
+}
+
+textarea{
+  width:100%;
+  height:100px;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+button.send{
+  margin-top:12px;
+  background:#ff7a18;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  width:100%;
+  cursor:pointer;
+}
+
+.message{
+  background:#f1f5f9;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3 id="userName">User</h3>
+    <button onclick="location.href='user-dashboard.html'">Dashboard</button>
+    <button onclick="location.href='messages.html'">Messages</button>
+    <button onclick="location.href='profile.html'">Profile</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="card">
+      <h2>Send Message to Admin</h2>
+
+      <textarea id="msgInput" placeholder="Type your message..."></textarea>
+      <button class="send" onclick="sendMessage()">Send Message</button>
+
+      <h3>Your Messages</h3>
+      <div id="messageList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!currentUser){
+  window.location.href = "login.php";
+}
+
+document.getElementById("userName").innerText = currentUser.name;
+
+// Load messages
+function loadMessages(){
+  let messages = JSON.parse(localStorage.getItem("messages")) || [];
+  const list = document.getElementById("messageList");
+  list.innerHTML = "";
+
+  messages
+    .filter(m => m.email === currentUser.email)
+    .forEach(m => {
+      list.innerHTML += `
+        <div class="message">
+          ${m.text}
+        </div>
+      `;
+    });
+}
+
+loadMessages();
+
+function sendMessage(){
+  const text = document.getElementById("msgInput").value;
+
+  if(!text){
+    alert("Enter message");
+    return;
+  }
+
+  let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+  messages.push({
+    name: currentUser.name,
+    email: currentUser.email,
+    text: text,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("messages", JSON.stringify(messages));
+
+  document.getElementById("msgInput").value = "";
+  loadMessages();
+}
+</script>
+
+</body>
+</html>

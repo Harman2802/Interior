@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BestArt | Dining Room</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  /* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins", sans-serif;
+}
+
+body{
+background:#f6f6f6;
+color:#2c2c2c;
+line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1opx;
+    cursor: pointer;
+}
+
+/* Logo Image (Balanced Size) */
+.logo img {
+    height: 60px;        /* Perfect professional size */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Brand Text */
+.logo h2 {
+    font-size: 24px;     /* Better proportion with image */
+    font-weight: 400;
+    color: #ffffff;      /* Change if navbar is light */
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.logo h2 span {
+    color: #f4a23a;
+}
+
+/* ================= RESPONSIVE LOGO ================= */
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+}
+.navbar a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:.3s;
+}
+
+.navbar a:hover,
+.navbar .active{color:#f4a23a;}
+
+.signup-btn{
+padding:8px 18px;
+background:#f4a23a;
+color:#000 !important;
+border-radius:30px;
+font-weight:600;
+}
+
+/* HERO */
+.hero{
+height:72vh;
+background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+url("images/d0.jpeg") center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:52px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.95;
+}
+
+/* SECTION */
+.section{
+padding:90px 80px;
+background:#fff;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:34px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.section-title p{
+color:#777;
+}
+
+/* CONTENT ROW */
+.kitchen-row{
+display:flex;
+gap:50px;
+margin-bottom:70px;
+align-items:center;
+padding:30px;
+background:#fafafa;
+border-radius:18px;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+transition:.3s;
+}
+
+.kitchen-row:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+.kitchen-row:nth-child(even){
+flex-direction:row-reverse;
+}
+
+.kitchen-text{
+flex:1;
+}
+
+.kitchen-text h3{
+color:#b76e79;
+font-size:24px;
+margin-bottom:12px;
+}
+
+.kitchen-text p{
+color:#555;
+margin-bottom:16px;
+}
+
+/* IMAGE STYLE */
+.kitchen-images{
+flex:1;
+display:flex;
+gap:18px;
+}
+
+.kitchen-images img{
+width:50%;
+border-radius:14px;
+object-fit:cover;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+transition:.35s;
+}
+
+.kitchen-images img:hover{
+transform:scale(1.05);
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+background:#b76e79;
+color:#fff;
+padding:12px 24px;
+border-radius:30px;
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+box-shadow:0 6px 18px rgba(183,110,121,0.25);
+}
+
+.btn:hover{
+background:#a45d68;
+transform:translateY(-2px);
+}
+
+/* CONSULT BUTTON */
+.services-btn{
+text-align:center;
+margin:70px 0;
+}
+
+.primary-btn{
+padding:16px 34px;
+border:none;
+border-radius:40px;
+color:#fff;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+background:linear-gradient(135deg,#b76e79,#9f5864,#c58b96);
+background-size:200% 200%;
+transition:.4s;
+box-shadow:0 12px 30px rgba(183,110,121,0.35);
+}
+
+.primary-btn:hover{
+background-position:right center;
+transform:translateY(-3px);
+}
+
+/* POPUP */
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(5px);
+}
+
+.popup-box{
+background:#fff;
+padding:35px;
+border-radius:20px;
+text-align:center;
+width:340px;
+box-shadow:0 20px 45px rgba(0,0,0,.2);
+position:relative;
+}
+
+.close-icon{
+position:absolute;
+top:12px;
+right:18px;
+cursor:pointer;
+font-size:22px;
+}
+
+.whatsapp-btn{
+background:#25D366;
+color:#fff;
+border:none;
+padding:14px 22px;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+box-shadow:0 10px 25px rgba(37,211,102,0.35);
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #111;
+  color: #ccc;
+  padding-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  padding: 0 7%;
+}
+
+.footer-col h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+}
+
+.footer-col h3::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #f4a23a;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+.footer-about {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #f4a23a;
+  padding-left: 5px;
+}
+
+.footer-col ul li i {
+  color: #f4a23a;
+  margin-right: 8px;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #222;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #f4a23a;
+  transform: translateY(-4px);
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  background: #0a0a0a;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.section{
+padding:60px 25px;
+}
+
+.header{
+padding:15px 25px;
+}
+
+.kitchen-row{
+flex-direction:column !important;
+padding:20px;
+}
+
+.hero h1{
+font-size:34px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+  <img src="images/logo.png" alt="BestArt Interior Design">
+
+    <h2>Best<span>Art</span></h2>
+  </div>
+<nav class="navbar">
+<a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#services">Services</a>
+  <a href="#customize">Customize</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#pack">Packages</a>
+  <a href="#estimate">Estimate</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact Us</a>
+<a href="signup.php" class="signup-btn">Sign Up</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Customized Dining Room</h1>
+<p>For Your Modern Lifestyle</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Custom-Made Dining Room</h2>
+<p>Design your dining room interior in perfect combination with your home style.People often have a tendency to purchase dining room furniture and other products separately from the ready-made furniture shop. But with Bestart you have an option to get dining room furniture such as table, chairs and crockery shelves in matching designs and color. By custom design and making, dining room interior design can be in perfect combination with modular kitchen. D'LIFE provides you with a comfortable design that matches your requirements. A suitable bar counter can be designed conveniently within the space available or the wash counter can be augmented by adding storage in matching colour themes. Take a look at some of our products for your dining room in this page to customize and include in your home interiors package. We have an endless variety of dining room interior design decors to give your dining room the makeover it deserves with gorgeous and beautiful updates for walls, lighting, and exclusive furniture. This facility of custom design and implementation of dining rooms in combination with other rooms is available in our branches in Navi Mumbai, Pune, Hyderabad, Bangalore, Mysore, Kerala, Chennai, Nagercoil, Coimbatore, Madurai & Mangalore.</p>
+</div>
+
+<div class="kitchen-row">
+<div class="kitchen-text">
+<h3>Bar Counter</h3>
+<p>Modern bar counter designs that enhance the elegance of your dining area.Most of the modern houses have a bar counter unit assembled at the dining room itself. It not only serves as a bar counter unit, but also acts as a prestigious decorative unit too. Avail the bar counter units to be assembled anywhere in India from Best Home Interiors.</p>
+<a href="dining-details.php?type=barcounter" class="btn">View More</a>
+</div>
+<div class="kitchen-images">
+<img src="images/d1.jpg">
+<img src="images/d2.jpg">
+</div>
+</div>
+
+<div class="kitchen-row">
+<div class="kitchen-text">
+<h3>Crockery Shelf</h3>
+<p>Customized crockery shelves designed to organize and display beautifully.A crockery shelf enables you to arrange your crockery items in a prestigious way. Dining rooms will be beautified when you have a customized crockery shelf in it. Choose from the wide range of crockery shelf designs from Best.</p>
+<a href="dining-details.php?type=crockery" class="btn">View More</a>
+</div>
+<div class="kitchen-images">
+<img src="images/d3.jpg">
+<img src="images/d4.jpg">
+</div>
+</div>
+
+<div class="kitchen-row">
+<div class="kitchen-text">
+<h3>Dining Chair</h3>
+<p>Comfortable and stylish dining chair designs made for modern homes.Dining chairs of the most modern type are custom-designed and made to suit the dining table set. Complete home interiors in unique style would need attention to even the small things. An alternative option is to go for a ready-made dining table and chairs set. But that may not match with the rest of the works that lead to imperfection. With Best customized dining chairs it is sure to bring comfort and style in perfect combination with the rest of the furnishing.
+
+</p>
+<a href="dining-details.php?type=chair" class="btn">View More</a>
+</div>
+<div class="kitchen-images">
+<img src="images/d5.jpg">
+<img src="images/d6.jpg">
+</div>
+</div>
+
+<div class="kitchen-row">
+<div class="kitchen-text">
+<h3>Dining Table</h3>
+<p>Premium dining tables designed to match your interior theme.As the dining table is a prominent piece of furniture for the daily use of family members, its style and durability is a matter of concern for all. Best makes suitable dining tables as part of home interior projects undertaken. Most modern styles can be integrated into the durable materials of laminated hardwood fiber board and glass. Ask for the available types of dining table or let us create something new for your house or flat.</p>
+<a href="dining-details.php?type=table" class="btn">View More</a>
+</div>
+<div class="kitchen-images">
+<img src="images/d7.jpg">
+<img src="images/d8.jpg">
+</div>
+</div>
+
+<div class="kitchen-row">
+<div class="kitchen-text">
+<h3>Wash Counter</h3>
+<p>Functional wash counter designs that complement dining interiors.A wash counter is an inevitable part of a dining room and when you can get it customized as per your needs and requirements it seems to be much more interesting. Make a wash counter unit that fits your space and keep your head straight while the guest arrives.
+
+</p>
+<a href="dining-details.php?type=washcounter" class="btn">View More</a>
+</div>
+<div class="kitchen-images">
+<img src="images/d9.jpg">
+<img src="images/d10.jpg">
+</div>
+</div>
+</section>
+
+<div class="services-btn">
+<button class="primary-btn" onclick="openPopup()">Talk to Our Design Consultant</button>
+</div>
+
+<div id="consultPopup" class="popup">
+<div class="popup-box">
+<span class="close-icon" onclick="closePopup()">×</span>
+<h2>Let's Design Your Dining Space</h2>
+<p>Our expert consultant will guide you.</p>
+<button class="whatsapp-btn" onclick="sendWhatsApp()">Chat on WhatsApp</button>
+</div>
+</div>
+
+<!------------------ FOOTER ------------------>
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Column 1 -->
+    <div class="footer-col">
+      <h3>About Company</h3>
+      <p class="footer-about">
+        We create modern and luxurious interior spaces designed to reflect
+        your lifestyle and personality.
+      </p>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <ul>
+        <li><i class="fas fa-envelope"></i> A_username@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +95 922 902 539</li>
+        <li><i class="fas fa-map-marker-alt"></i> Garden Town Punjab</li>
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Best Art | All Rights Reserved.
+  </div>
+
+</footer>
+
+<script>
+function openPopup(){
+document.getElementById("consultPopup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("consultPopup").style.display="none";
+}
+
+function sendWhatsApp(){
+const phone="919592290249";
+const message="Hello, I want dining room consultation.";
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
+}
+</script>
+
+</body>
+</html>

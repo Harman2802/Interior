@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - BestArt Interior</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:white;
+color:black;
+line-height:1.7;
+}
+
+/* ================= HEADER ================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1opx;
+    cursor: pointer;
+}
+
+/* Logo Image (Balanced Size) */
+.logo img {
+    height: 60px;        /* Perfect professional size */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Brand Text */
+.logo h2 {
+    font-size: 24px;     /* Better proportion with image */
+    font-weight: 400;
+    color: #ffffff;      /* Change if navbar is light */
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.logo h2 span {
+    color: #f4a23a;
+}
+
+/* ================= RESPONSIVE LOGO ================= */
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+}
+.navbar a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:.3s;
+}
+
+.navbar a:hover,
+.navbar .active{color:#f4a23a;}
+
+.signup-btn{
+padding:8px 18px;
+background:#f4a23a;
+color:#000 !important;
+border-radius:30px;
+font-weight:600;
+}
+
+/* HERO */
+.about-hero{
+  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+             url("images/about.jpg") center/cover no-repeat;
+  height:350px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:40px 20px;
+}
+
+.about-hero h1{
+  font-size:48px;
+  letter-spacing:2px;
+  margin-bottom:15px;
+}
+
+.about-hero h1 span{
+  color:#c6a769;
+}
+
+.about-hero p{
+  max-width:650px;
+  font-size:18px;
+  line-height:1.6;
+  color:#e5e5e5;
+}
+
+/* small underline decoration */
+.about-hero h1::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  background:#c6a769;
+  margin:12px auto 0;
+  border-radius:3px;
+}
+/* SECTION SPACING */
+.project-overview{
+  padding:90px 20px;
+  background:#f8f6f2;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-header h2{
+  font-size:34px;
+}
+
+.section-header span{
+  color:#c6a769;
+}
+
+.section-header p{
+  color:#666;
+  margin-top:10px;
+}
+
+/* FLEX LAYOUT */
+.overview-container{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  max-width:1100px;
+  margin:auto;
+  flex-wrap:wrap;
+}
+
+/* TEXT BOX */
+.content-box{
+  flex:1;
+  min-width:300px;
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+.content-box h3{
+  color:#c6a769;
+  margin-bottom:10px;
+}
+
+.content-box ul{
+  margin-top:15px;
+  padding-left:18px;
+}
+
+.content-box li{
+  margin-bottom:8px;
+}
+
+/* IMAGE */
+.overview-image{
+  flex:1;
+  min-width:280px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.overview-image img{
+  width:100%;
+  max-width:480px;   /* controls image size */
+  height:320px;      /* fixed clean height */
+  object-fit:cover;  /* keeps image proportional */
+  border-radius:18px;
+  box-shadow:0 18px 35px rgba(0,0,0,0.15);
+  transition:0.3s;
+}
+
+.overview-image img:hover{
+  transform:scale(1.04);
+}
+/* SECTION BACKGROUND */
+section{
+  padding:90px 20px;
+  background:#f8f6f2;
+}
+
+/* HEADER */
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-header h2{
+  font-size:34px;
+  color:#2d2d2d;
+}
+
+.section-header span{
+  color:#c6a769;
+}
+
+/* GRID LAYOUT */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:30px;
+  max-width:1000px;
+  margin:auto;
+}
+
+/* CARD DESIGN */
+.info-card{
+  background:white;
+  padding:30px 25px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:0.35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* GOLD TOP LINE */
+.info-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:#c6a769;
+}
+
+/* HOVER EFFECT */
+.info-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* TITLE */
+.info-card h4{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#2d2d2d;
+}
+
+/* TEXT */
+.info-card p{
+  font-size:14px;
+  color:#666;
+  line-height:1.5;
+}
+/* SECTION */
+.mission-section{
+  padding:90px 20px;
+  background:#ffffff;
+}
+
+/* CONTAINER */
+.mission-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  max-width:1100px;
+  margin:auto;
+  flex-wrap:wrap;
+}
+
+/* TEXT AREA */
+.mission-content{
+  flex:1;
+  min-width:300px;
+}
+
+/* BOXES */
+.mission-box,
+.vision-box{
+  background:#f8f6f2;
+  padding:25px;
+  border-radius:14px;
+  margin-bottom:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.mission-box:hover,
+.vision-box:hover{
+  transform:translateY(-5px);
+}
+
+/* HEADINGS */
+.mission-content h3{
+  color:#c6a769;
+  margin-bottom:8px;
+}
+
+/* IMAGE */
+.mission-image{
+  flex:1;
+  min-width:280px;
+}
+
+.mission-image img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/*------ FOOTER ----------*/
+/* ===== PREMIUM FOOTER ===== */
+.footer{
+  background:linear-gradient(180deg,#0c0c0c,#050505);
+  padding:80px 8% 30px;
+  margin-top:100px;
+  border-top:3px solid #c6a769;
+  color:#bbb;
+}
+
+/* GRID */
+/* ===== FOOTER CONTENT IMPROVED ===== */
+
+.footer-content{
+  max-width:1100px;        /* keeps content centered */
+  margin:0 auto 40px;      /* equal left/right margin */
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+}
+
+/* FOOTER COLUMN */
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #efe8e8;
+}
+
+.footer-col a {
+    display: block;
+    text-decoration: none;
+    color: #f5eaea;
+    margin-bottom: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.footer-col a:hover {
+    color: #ece4e4;
+    padding-left: 6px;
+}
+/* SOCIAL ICONS */
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.footer-social a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#e8e6e6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#c6a769;
+  font-size:16px;
+  transition:0.3s ease;
+  box-shadow:0 5px 10px rgba(236, 233, 233, 0.967);
+}
+
+.footer-social a:hover{
+  background:#f1efea;
+  color:#a29e9e;
+  transform:translateY(-6px) scale(1.1);
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  font-size:13px;
+  color:#fdf7f7;
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:20px;
+}
+/* =========================================
+TABLET RESPONSIVE (≤1024px)
+========================================= */
+
+@media (max-width:1024px){
+
+.header{
+padding:12px 5%;
+}
+
+.navbar a{
+margin-left:18px;
+font-size:13px;
+}
+
+/* HERO */
+.about-hero{
+height:300px;
+}
+
+.about-hero h1{
+font-size:36px;
+}
+
+.about-hero p{
+font-size:16px;
+}
+
+/* PROJECT OVERVIEW */
+.overview-container{
+gap:30px;
+}
+
+.overview-image img{
+height:260px;
+}
+
+/* MISSION */
+.mission-container{
+gap:40px;
+}
+
+.footer{
+padding:70px 6% 25px;
+}
+
+}
+
+
+/* =========================================
+MOBILE RESPONSIVE (≤768px)
+========================================= */
+
+@media (max-width:768px){
+
+/* HEADER */
+.header{
+padding:12px 5%;
+flex-wrap:wrap;
+}
+
+/* NAVBAR STACK */
+.navbar{
+width:100%;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:10px;
+}
+
+.navbar a{
+margin:6px 10px;
+font-size:13px;
+}
+
+/* HERO */
+.about-hero{
+height:auto;
+padding:110px 20px 60px;
+}
+
+.about-hero h1{
+font-size:30px;
+}
+
+.about-hero p{
+font-size:15px;
+}
+
+/* SECTION SPACING */
+section{
+padding:70px 18px;
+}
+
+/* PROJECT OVERVIEW STACK */
+.overview-container{
+flex-direction:column;
+text-align:center;
+}
+
+.content-box{
+padding:25px;
+}
+
+.overview-image img{
+max-width:100%;
+height:240px;
+}
+
+/* INFO GRID */
+.info-grid{
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+/* MISSION */
+.mission-container{
+flex-direction:column;
+text-align:center;
+}
+
+.mission-image img{
+max-width:420px;
+margin:auto;
+}
+
+/* FOOTER */
+.footer-content{
+grid-template-columns:1fr;
+text-align:center;
+gap:25px;
+}
+
+.footer-col a:hover{
+padding-left:0;
+}
+
+}
+
+
+/* =========================================
+SMALL MOBILE (≤480px)
+========================================= */
+
+@media (max-width:480px){
+
+/* LOGO */
+.logo img{
+height:38px;
+}
+
+.logo h2{
+font-size:18px;
+}
+
+/* HERO */
+.about-hero h1{
+font-size:26px;
+}
+
+.about-hero p{
+font-size:14px;
+}
+
+/* SECTION HEADER */
+.section-header h2{
+font-size:26px;
+}
+
+/* INFO GRID */
+.info-grid{
+grid-template-columns:1fr;
+}
+
+/* CONTENT BOX */
+.content-box{
+padding:20px;
+}
+
+/* MISSION BOX */
+.mission-box,
+.vision-box{
+padding:18px;
+}
+
+/* IMAGE */
+.overview-image img{
+height:210px;
+}
+
+/* FOOTER */
+.footer{
+padding:60px 5% 20px;
+}
+
+.footer-social{
+gap:12px;
+}
+
+.footer-social a{
+width:38px;
+height:38px;
+font-size:14px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+  <img src="images/logo.png" alt="BestArt Interior Design">
+
+    <h2>Best<span>Art</span></h2>
+  </div>
+<nav class="navbar">
+<a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#services">Services</a>
+  <a href="#customize">Customize</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#pack">Packages</a>
+  <a href="#estimate">Estimate</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact Us</a>
+<a href="signup.php" class="signup-btn">Sign Up</a>
+</nav>
+</header>
+
+<section class="about-hero">
+<h1><span>About</span> Us</h1>
+<p>Creating emotion through space. We design modern interiors that combine creativity, comfort, and functionality.</p>
+</section>
+
+<section class="project-overview">
+
+  <div class="section-header">
+    <h2><span>Project</span> Overview</h2>
+    <p>Complete overview of our Interior Design & 3D Visualization platform</p>
+  </div>
+
+  <div class="overview-container">
+
+    <div class="content-box">
+      <h3>About This Project</h3>
+      <p>
+        This Interior Design Web Application showcases modern interior concepts
+        with cost estimation and visualization tools.
+      </p>
+
+      <ul>
+        <li>Interactive 3D Design Gallery</li>
+        <li>Room Selection & Customization</li>
+        <li>Cost Estimation System</li>
+        <li>Modern UI Experience</li>
+        <li>Fully Responsive Design</li>
+      </ul>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" alt="Interior Design">
+
+  </div>
+
+</section>
+
+<section>
+<div class="section-header">
+<h2><span>Who</span> Can Use It?</h2>
+</div>
+
+<div class="info-grid">
+<div class="info-card"><h4>🏠 Home Owners</h4><p>Explore styles and estimate interior costs easily.</p></div>
+<div class="info-card"><h4>🧑‍💼 Designers</h4><p>Present interior concepts professionally.</p></div>
+<div class="info-card"><h4>🏢 Offices</h4><p>Plan modern workspace interiors.</p></div>
+<div class="info-card"><h4>🎓 Students</h4><p>Learn interior design inspiration.</p></div>
+</div>
+</section>
+
+<section class="mission-section">
+
+  <div class="section-header">
+    <h2><span>Mission</span> & Vision</h2>
+  </div>
+
+  <div class="mission-container">
+
+    <!-- TEXT SIDE -->
+    <div class="mission-content">
+      <div class="mission-box">
+        <h3>Our Mission</h3>
+        <p>
+          Transform ordinary spaces into extraordinary experiences by combining
+          creativity, comfort, and functionality through modern interior design.
+        </p>
+      </div>
+
+      <div class="vision-box">
+        <h3>Our Vision</h3>
+        <p>
+          Become a leading digital interior design platform that inspires people
+          to create beautiful and meaningful living spaces.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE SIDE -->
+    <div class="mission-image">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Interior Design">
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-col">
+<h3>BestArt</h3>
+<p>Modern interior solutions for modern living.</p>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>info@bestart.com</p>
+<p>+91 95922 90249</p>
+</div>
+<div class="footer-col">
+<h3>Links</h3>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Gallery</a>
+</div>
+</div>
+<div class="footer-social">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+<div class="footer-bottom">
+© 2026 BestArt Interior Design
+</div>
+</footer>
+
+</body>
+</html>

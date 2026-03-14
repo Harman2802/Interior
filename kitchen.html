@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BestArt | Modular Kitchen</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  /* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1opx;
+    cursor: pointer;
+}
+
+/* Logo Image (Balanced Size) */
+.logo img {
+    height: 60px;        /* Perfect professional size */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Brand Text */
+.logo h2 {
+    font-size: 24px;     /* Better proportion with image */
+    font-weight: 400;
+    color: #ffffff;      /* Change if navbar is light */
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.logo h2 span {
+    color: #f4a23a;
+}
+
+/* ================= RESPONSIVE LOGO ================= */
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+}
+.navbar a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:.3s;
+}
+
+.navbar a:hover,
+.navbar .active{color:#f4a23a;}
+
+.signup-btn{
+padding:8px 18px;
+background:#f4a23a;
+color:#000 !important;
+border-radius:30px;
+font-weight:600;
+}
+/* ================= SOCIAL BAR ================= */
+.social-bar {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.social-bar a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #1a1919;
+  background-color: #e1b3ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.social-bar a:hover {
+  background: white;
+  color: #000;
+  border-color: white;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+              url("images/k0.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 { font-size: 48px; margin-bottom: 10px; }
+.hero p { font-size: 20px; }
+
+/* ================= SECTION ================= */
+.section { padding: 80px 60px; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 { font-size: 32px; color: #222; }
+.section-title p { color: #777; }
+
+/* ================= KITCHEN SECTION ================= */
+.kitchen-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.kitchen-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.kitchen-text { flex: 1; }
+
+.kitchen-text h3 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #b76e79;
+}
+
+.kitchen-text p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.kitchen-images {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+}
+
+.kitchen-images img {
+  width: 50%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.kitchen-images img:hover { transform: scale(1.05); }
+
+/* ================= BUTTONS ================= */
+.btn {
+  display: inline-block;
+  background: #b76e79;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #a55d68;
+  transform: translateY(-2px);
+}
+
+/* SERVICES BUTTON */
+.services-btn { text-align:center; margin:60px 0; }
+
+.primary-btn {
+  padding:16px 30px;
+  font-size:16px;
+  font-weight:600;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(135deg,#b76e79,#9f5864,#c58b96);
+  background-size:200% 200%;
+  transition:0.4s;
+  box-shadow:0 8px 25px rgba(183,110,121,0.3);
+}
+
+.primary-btn:hover {
+  transform:translateY(-4px);
+  background-position:right center;
+  box-shadow:0 12px 35px rgba(183,110,121,0.5);
+}
+
+/* ================= POPUP ================= */
+/* POPUP OVERLAY */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  animation:fadeIn 0.3s ease;
+}
+
+/* POPUP BOX */
+.popup-box{
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  width:360px;
+  border-radius:20px;
+  text-align:center;
+  position:relative;
+  animation:zoomIn 0.4s ease;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.popup-box h2{
+  margin-bottom:10px;
+  color:#333;
+}
+
+.popup-box p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:20px;
+}
+
+/* CLOSE ICON */
+.close-icon{
+  position:absolute;
+  top:15px;
+  right:18px;
+  font-size:22px;
+  cursor:pointer;
+  color:#777;
+  transition:0.3s;
+}
+
+.close-icon:hover{
+  color:#b76e79;
+  transform:rotate(90deg);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn{
+  padding:14px 24px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+  background:#25D366;
+  color:#fff;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(37,211,102,0.3);
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(37,211,102,0.5);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes zoomIn{
+  from{transform:scale(0.7);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* ================= CUSTOM SECTION ================= */
+
+
+.custom-section{
+  padding:90px 20px;
+  background:#fff7f8;
+}
+
+/* CONTAINER SIZE */
+.custom-container{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+/* IMAGES */
+.custom-images{
+  display:grid;
+  gap:22px;
+}
+
+.custom-images img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:0.35s ease;
+}
+
+.custom-images img:hover{
+  transform:scale(1.04);
+}
+
+/* TEXT AREA */
+.custom-text{
+  max-width:520px;
+}
+
+.custom-text h2{
+  font-size:34px;
+  margin-bottom:18px;
+  color:#b76e79;
+  font-weight:700;
+}
+
+.custom-text p{
+  font-size:16px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+
+/* BUTTON */
+.custom-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:14px 26px;
+  background:#b76e79;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:600;
+  transition:.3s;
+  box-shadow:0 8px 20px rgba(183,110,121,.25);
+}
+
+.custom-btn:hover{
+  background:#a55d68;
+  transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .custom-container{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:40px;
+  }
+
+  .custom-text{
+    margin:auto;
+  }
+}
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #111;
+  color: #ccc;
+  padding-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  padding: 0 7%;
+}
+
+.footer-col h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+}
+
+.footer-col h3::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #f4a23a;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+.footer-about {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #f4a23a;
+  padding-left: 5px;
+}
+
+.footer-col ul li i {
+  color: #f4a23a;
+  margin-right: 8px;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #222;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #f4a23a;
+  transform: translateY(-4px);
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  background: #0a0a0a;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes zoomIn {
+  from{transform:scale(0.7);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px){
+  .custom-container{ grid-template-columns:1fr; }
+}
+
+@media (max-width: 900px) {
+  .kitchen-row { flex-direction: column; }
+  .navbar { display: none; }
+  .section { padding: 50px 20px; }
+  .header { padding: 15px 20px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">
+  <img src="images/logo.png" alt="BestArt Interior Design">
+
+    <h2>Best<span>Art</span></h2>
+  </div>
+<nav class="navbar">
+<a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#services">Services</a>
+  <a href="#customize">Customize</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#pack">Packages</a>
+  <a href="#estimate">Estimate</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact Us</a>
+<a href="signup.php" class="signup-btn">Sign Up</a>
+</nav>
+</header>
+
+<!-- SOCIAL ICONS -->
+<div class="social-bar">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Customized Modular Kitchen</h1>
+        <p>Your Dream Home Deserves</p>
+    </div>
+</section>
+
+<!-- CUSTOM REQUIREMENT SECTION -->
+<section class="custom-section" id="custom">
+  <div class="custom-container">
+
+    <div class="custom-images">
+      <img src="images/k11.jpg" alt="">
+      <img src="images/k12.jpg" alt="">
+    </div>
+
+    <div class="custom-text">
+      <h2>Customize As Per Your Needs</h2>
+
+      <p>
+        Already have a ready home? No problem. We provide customized interior
+        solutions based on your specific requirements. Whether you need
+        additional cabinets, storage upgrades, countertop replacement,
+        lighting improvements, or minor layout modifications — we design
+        only what you need.
+      </p>
+
+      <p>
+        Our team evaluates your existing space and suggests cost-effective,
+        practical, and stylish upgrades without disturbing your complete setup.
+        Perfect for renovation, remodeling, or partial interior work.
+      </p>
+
+      <a href="custom-plan.php" class="custom-btn">Request Custom Plan</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="section" id="kitchen">
+    <div class="section-title">
+        <h2>Custom-made Modular Kitchen</h2>
+        <p>We design stylish and functional kitchens customized to your space and lifestyle.</p>
+    </div>
+
+    <!-- Island -->
+    <div class="kitchen-row">
+        <div class="kitchen-text">
+            <h3>Island Kitchen</h3>
+            <p>Modern island kitchens designed for elegance and comfort. Ideal for open layouts with extra storage and seating options.Kitchens should be elegant looking as well as serve our purpose of storage, convenient cooking, and a part of comfortable living. Island kitchen series of modern designs from D`LIFE offers you a wide range of selections to help the customer get the best idea. These are different from the traditional style and towards the new trends. Some of these models are displayed in our showrooms. Sandy, orchid, mauve, ivory, niagara, excalibur etc are some of the samples under island kitchens.</p>
+            <a href="kitchen-details.php?type=island" class="btn">View More</a>
+        </div>
+        <div class="kitchen-images">
+            <img src="images/k1.jpg">
+            <img src="images/k2.jpg">
+        </div>
+    </div>
+
+    <!-- L Shape -->
+    <div class="kitchen-row">
+        <div class="kitchen-text">
+            <h3>L Shape Kitchen</h3>
+            <p>Smart and efficient L-shaped kitchen layouts that maximize corner space and enhance workflow efficiency.Kitchen of a house should be made and maintained in proper shape, design and color. Everything should be arranged perfectly to match the requirements. L-shaped kitchens from D`LIFE are 100% customized to fit the space. Various options are given below which can further be modified and made as per a design finalized. These L shape kitchen models are available to visit and view in our showrooms across India. Beige, cocoa, cedar, cyclone, ebony, talisman etc. are some of the samples under L shape.</p>
+           <a href="kitchen-details.php?type=lshape" class="btn">View More</a>
+        </div>
+        <div class="kitchen-images">
+            <img src="images/k3.jpg">
+            <img src="images/k4.jpg">
+        </div>
+    </div>
+
+    <!-- Parallel -->
+    <div class="kitchen-row">
+        <div class="kitchen-text">
+            <h3>Parallel Kitchen</h3>
+            <p>Parallel kitchens provide optimized functionality with workspaces on both sides for seamless cooking experience.Parallel kitchen is the concept of making cabinets on both the longer sides, especially as per the suitability to the space measured. Our interior designer would be able to help you decide the shape, color, and finish by giving suggestions. Visit our nearest showroom to view the designs below and select as per your preference and then let us discuss further. Some of the samples of parallel modular kitchen made by DLIFE are pearl, misty, coral and turmeric.
+
+View </p>
+            <a href="kitchen-details.php?type=parallel" class="btn">View More</a>
+        </div>
+        <div class="kitchen-images">
+            <img src="images/k5.jpg">
+            <img src="images/k9.jpg">
+        </div>
+    </div>
+
+    <!-- Straight -->
+    <div class="kitchen-row">
+        <div class="kitchen-text">
+            <h3>Straight Kitchen</h3>
+            <p>Sleek straight kitchen layouts ideal for compact homes, designed with a modern and glossy finish.A big space can accommodate a straight kitchen with differences from commonly used styles. Best of the efforts are made by our team of interior designers to provide unique ideas and concepts in making modular kitchens to suit the space and match with the house. Glossy, mystic, blackcurrant, siam, moroccan, tanned etc are some of the sample designs under a straight kitchen that can be made and installed across India.</p>
+            <a href="kitchen-details.php?type=straight" class="btn">View More</a>
+        </div>
+        <div class="kitchen-images">
+            <img src="images/k6.jpg">
+            <img src="images/k7.jpg">
+        </div>
+    </div>
+
+    <!-- U Shape -->
+    <div class="kitchen-row">
+        <div class="kitchen-text">
+            <h3>U Shape Kitchen</h3>
+            <p>U-shaped kitchens provide maximum storage and efficient movement, perfect for larger cooking spaces.A U-shaped kitchen is a kitchen design with work-spaces on three sides with cabinets. It’s an efficient design that provides plenty of work space and allows for ample storage. Designed to be user-friendly and clutter-free, this kitchen design keeps all your appliances or cooking essentials perfectly in place. U-shaped kitchens from D`LIFE are 100% customized to fit the space. You can visit one of our showrooms in Kerala, Karnataka, Maharashtra, Tamil Nadu and Telangana to view and discuss with our interior designers. Have a look at some of our stunning U-shaped kitchen designs below.</p>
+            <a href="kitchen-details.php?type=ushape" class="btn">View More</a>
+        </div>
+        <div class="kitchen-images">
+            <img src="images/k8.jpg">
+            <img src="images/k9.jpg">
+        </div>
+    </div>
+
+</section>
+
+<!-- section  -->
+<div class="services-btn">
+  <button class="primary-btn" onclick="openPopup()">
+    ✨ Talk to Our Design Consultant
+  </button>
+</div>
+
+<!-- POPUP -->
+<div id="consultPopup" class="popup">
+  <div class="popup-box">
+
+    <span class="close-icon" onclick="closePopup()">×</span>
+
+    <h2>Let's Design Your Dream Space</h2>
+    <p>Our expert consultant will guide you with the best interior solutions.</p>
+
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">
+      Chat on WhatsApp
+    </button>
+
+  </div>
+</div>
+
+
+<!------------------ FOOTER ------------------>
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Column 1 -->
+    <div class="footer-col">
+      <h3>About Company</h3>
+      <p class="footer-about">
+        We create modern and luxurious interior spaces designed to reflect
+        your lifestyle and personality.
+      </p>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <ul>
+        <li><i class="fas fa-envelope"></i> A_username@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +95 922 902 539</li>
+        <li><i class="fas fa-map-marker-alt"></i> Garden Town Punjab</li>
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Best Art | All Rights Reserved.
+  </div>
+
+</footer>
+
+<script>
+    
+/*...........services section animation........... */
+
+function openPopup(){
+  document.getElementById("consultPopup").style.display = "flex";
+}
+
+function closePopup(){
+  document.getElementById("consultPopup").style.display = "none";
+}
+
+function sendWhatsApp(){
+  const phone = "919592290249"; // replace with your number
+  const message = "Hello, I want to talk to a design consultant.";
+  window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message), "_blank");
+}
+</script>
+</body>
+</html>

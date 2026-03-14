@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Interior Design - BestArt</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0e0e0e;
+    color:#fff;
+    line-height:1.7;
+}
+
+section{
+    padding:100px 8%;
+}
+
+h1,h2,h3,h4{
+    font-weight:600;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    background:rgba(0,0,0,0.8);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+header h2{
+    color:#f4a23a;
+}
+
+nav a{
+    color:#ccc;
+    margin-left:30px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#f4a23a;
+}
+
+/* ================= HERO ================= */
+
+.service-hero{
+    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
+    text-align:center;
+    padding:140px 8%;
+}
+
+.service-hero h1{
+    font-size:55px;
+}
+
+.service-hero span{
+    color:#f4a23a;
+}
+
+.service-hero p{
+    margin-top:20px;
+    max-width:750px;
+    margin-left:auto;
+    margin-right:auto;
+    color:#ddd;
+}
+
+/* ================= SECTION HEADER ================= */
+
+.section-header{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-header h2{
+    font-size:38px;
+    position:relative;
+    display:inline-block;
+}
+
+.section-header span{
+    color:#f4a23a;
+}
+
+.section-header h2::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:60%;
+    height:3px;
+    background:linear-gradient(90deg,#f4a23a,transparent);
+}
+
+.section-header p{
+    margin-top:20px;
+    color:#aaa;
+}
+
+/* ================= GRID ================= */
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* ================= CARD ================= */
+
+.service-card{
+    background:#1a1a1a;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.05);
+    transition:0.4s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    border-color:#f4a23a;
+    box-shadow:0 15px 40px rgba(244,162,58,0.15);
+}
+
+.service-card h4{
+    color:#f4a23a;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.service-card p{
+    color:#ccc;
+    font-size:14px;
+}
+
+/* ================= CONTENT BOX ================= */
+
+.content-box{
+    max-width:1000px;
+    margin:auto;
+    background:#1a1a1a;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.content-box ul{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.content-box li{
+    margin-bottom:10px;
+    color:#ccc;
+}
+
+/* ================= IMAGE SECTION ================= */
+
+.image-section{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    margin-top:60px;
+}
+
+.image-section img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.image-section img:hover{
+    transform:scale(1.05);
+}
+
+/* ================= PROCESS ================= */
+
+.process{
+    text-align:center;
+}
+
+.steps{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.step{
+    background:#1a1a1a;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    text-align:center;
+}
+
+.cta button{
+    margin-top:25px;
+    padding:14px 45px;
+    border:none;
+    border-radius:30px;
+    background:#f4a23a;
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cta button:hover{
+    transform:scale(1.05);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:40px 8%;
+    color:#aaa;
+    margin-top:100px;
+}
+.stats-section{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    background:#141414;
+    padding:80px 8%;
+    text-align:center;
+}
+
+.stat-box{
+    margin:20px;
+}
+
+.stat-box h3{
+    font-size:40px;
+    color:#f4a23a;
+}
+
+.stat-box p{
+    color:#aaa;
+    font-size:14px;
+}
+.testimonial{
+    background:#111;
+    text-align:center;
+}
+
+.testimonial-box{
+    max-width:700px;
+    margin:auto;
+    background:#1a1a1a;
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.testimonial-box p{
+    color:#ccc;
+    font-style:italic;
+}
+
+.testimonial-box h4{
+    margin-top:20px;
+    color:#f4a23a;
+}
+.floating-btn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#f4a23a;
+    color:#000;
+    padding:14px 25px;
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(244,162,58,0.3);
+    transition:0.3s;
+}
+
+.floating-btn:hover{
+    transform:scale(1.05);
+}
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+<h2>BestArt</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Gallery</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="service-hero">
+<h1><span>3D</span> Interior Design</h1>
+<p>We create immersive and photorealistic 3D interior experiences that help you visualize your dream space before execution begins.</p>
+</section>
+
+<section>
+<div class="section-header">
+<h2><span>Our</span> Expertise</h2>
+<p>Complete interior visualization & planning solutions</p>
+</div>
+
+<div class="service-grid">
+<div class="service-card"><h4>Space Planning</h4><p>Optimized layout strategies ensuring comfort and functionality.</p></div>
+<div class="service-card"><h4>Color Consultation</h4><p>Expert palette selection aligned with lighting and mood.</p></div>
+<div class="service-card"><h4>CAD Drawings</h4><p>Accurate technical drafting with precise dimensions.</p></div>
+<div class="service-card"><h4>Lighting Design</h4><p>Layered lighting combining ambient, task and accent lighting.</p></div>
+<div class="service-card"><h4>Furniture Layout</h4><p>Ergonomic placement for better flow and usability.</p></div>
+<div class="service-card"><h4>Photoreal Rendering</h4><p>Ultra-realistic 3D renders simulating real materials.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-header">
+<h2><span>Project</span> Showcase</h2>
+<p>Realistic design samples from our portfolio</p>
+</div>
+
+<div class="image-section">
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb3">
+<img src="https://images.unsplash.com/photo-1582582494700-1d1f6b2a5b0b">
+</div>
+</section>
+
+<section class="process">
+<div class="section-header">
+<h2><span>Our</span> Process</h2>
+</div>
+
+<div class="steps">
+<div class="step">Consultation & Requirement Analysis</div>
+<div class="step">Concept & Mood Board</div>
+<div class="step">3D Modeling & Visualization</div>
+<div class="step">Execution Support</div>
+</div>
+</section>
+
+
+<section class="stats-section">
+    <div class="stat-box">
+        <h3 class="counter" data-target="250">0</h3>
+        <p>Projects Completed</p>
+    </div>
+
+    <div class="stat-box">
+        <h3 class="counter" data-target="120">0</h3>
+        <p>Happy Clients</p>
+    </div>
+
+    <div class="stat-box">
+        <h3 class="counter" data-target="15">0</h3>
+        <p>Design Awards</p>
+    </div>
+
+    <div class="stat-box">
+        <h3 class="counter" data-target="10">0</h3>
+        <p>Years Experience</p>
+    </div>
+</section>
+
+<section class="cta">
+<h3>Ready to Transform Your Space?</h3>
+<button>Book Consultation</button>
+</section>
+<section>
+    <div class="section-header">
+        <h2><span>Pricing</span> Plans</h2>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <h4>Basic Plan</h4>
+            <h3 style="color:#f4a23a;">₹15,000</h3>
+            <p>2D Layout + 2 Renders</p>
+        </div>
+
+        <div class="service-card">
+            <h4>Premium Plan</h4>
+            <h3 style="color:#f4a23a;">₹35,000</h3>
+            <p>Full 3D Visualization + Walkthrough</p>
+        </div>
+
+        <div class="service-card">
+            <h4>Luxury Plan</h4>
+            <h3 style="color:#f4a23a;">₹75,000</h3>
+            <p>Complete Design + Execution Support</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="section-header">
+        <h2><span>Before</span> & After</h2>
+        <p>See the transformation we create</p>
+    </div>
+
+    <div class="image-section">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+        <img src="https://images.unsplash.com/photo-1616593969747-4797dc75033e">
+    </div>
+</section>
+<section class="testimonial">
+    <div class="section-header">
+        <h2><span>Client</span> Testimonials</h2>
+    </div>
+
+    <div class="testimonial-box">
+        <p>"BestArt transformed our home beyond expectations. The 3D visualization helped us finalize everything confidently."</p>
+        <h4>— Aman Singh</h4>
+    </div>
+</section>
+<a href="contact.html" class="floating-btn">Book Now</a>
+
+<footer>
+© 2026 BestArt Interior Design | Crafted with Excellence
+</footer>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const c = +counter.innerText;
+        const increment = target / 200;
+
+        if(c < target){
+            counter.innerText = `${Math.ceil(c + increment)}`;
+            setTimeout(updateCounter,10);
+        }else{
+            counter.innerText = target;
+        }
+    };
+    updateCounter();
+});
+</script>
+
+</body>
+</html>
