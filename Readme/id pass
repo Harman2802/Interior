@@ -1,1 +1,31 @@
+Admin =
+name = Bestart
+Id = admin@gmail.com
+Pass = admin123
 
+
+
+
+
+
+User =
+user1 
+name= Gagan
+id = gagan@gmail.com
+pass= gagan123
+
+user 2 
+name- Harman
+id = user@gmail.com
+pass = user123
+
+
+
+without Login nothing is working like quotes is not selected 
+
+// Redirect if user not logged in
+if (!isset($_SESSION['user']['email'])) {
+    header("Location: login.php");
+    exit();
+}
+ this code is used 
